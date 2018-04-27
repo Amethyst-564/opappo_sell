@@ -1,0 +1,61 @@
+#logging:
+#  pattern:
+#    console: "%d - %msg%n"
+##  path: D:\临时文件夹\log\tomcat\
+#  file: D:\临时文件夹\log\tomcat\sell.log
+#  level:
+#    pers.opappo.sell.LoggerTest: error
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.43.251/sell?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+  jackson:
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+  redis:
+    host: 192.168.43.251
+    port: 6379
+server:
+  servlet:
+    context-path: /sell
+
+wechat:
+#  微信测试号
+  mpAppId: wx45f95c79811baad2
+  mpAppSecret: 1ef15d4422074b55376e6c42e6ab1e01
+
+#  支付平台租借号
+#  openid一定要用租号时候的id
+#  即 oTgZpwe_-yWd1jjcBpUqr9fJUKTw
+#  mpAppId: wxd898fcb01713c658
+#  mpAppSecret: xxxxxxxxxxxx
+  mchId: 1483469312
+  mchKey: C5245D70627C1F8E9964D494B0735025
+  keyPath: D:\Reincarnation\h5.p12
+  #  notifyUrl: http://opappo.nat300.top/pay/notify
+  notifyUrl: http://opappo.nat300.top/notify
+
+#  微信开放平台(用于扫码登录)
+  openAppId: wx6ad144e54af67d87
+  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+# 消息模板
+  templateId:
+    orderStatus: fj2ZEabQ-mwQKqAU5Pc8HdoA1evmsompsik1R85jBIM
+
+projecturl:
+  wechatMpAuthorize: http://opappo.nat300.top
+#  wechatOpenAuthorize: http://opappo.nat300.top
+  wechatOpenAuthorize: http://sell.springboot.cn
+  sell: http://opappo.nat300.top
+
+# 定义日志级别，用于打印mybatis的sql到控制台
+logging:
+  level:
+    pers.opappo.sell.dataobject.mapper: trace
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
